@@ -5,8 +5,8 @@ Ktor backend for the Spotify-style portfolio project. It exposes playlist, feed,
 ## Live Service
 
 - Cloud Run service: `spotify-api`
-- Cloud Run URL: `https://spotify-api-888561484971.us-central1.run.app`
-- Frontend service: `https://spotify-888561484971.us-central1.run.app`
+- Cloud Run URL: `https://spotify-api-gb7rmueyna-uc.a.run.app`
+- Frontend service: `https://spotify-gb7rmueyna-uc.a.run.app`
 - Portfolio URL: `https://spotify.junliu.dev`
 - Google Cloud project: `caramel-vim-441513-e1`
 - Region: `us-central1`
@@ -112,7 +112,7 @@ baseUrl=http://localhost:8083
 For Cloud Run:
 
 ```text
-baseUrl=https://spotify-api-888561484971.us-central1.run.app
+baseUrl=https://spotify-api-gb7rmueyna-uc.a.run.app
 ```
 
 ## Tests And Build
@@ -158,7 +158,7 @@ https://github.com/trickywork/Spotify_Frontend
 The frontend should point to this backend with:
 
 ```env
-API_BASE_URL=https://spotify-api-888561484971.us-central1.run.app
+API_BASE_URL=https://spotify-api-gb7rmueyna-uc.a.run.app
 ```
 
 ## Expected Portfolio Behavior
