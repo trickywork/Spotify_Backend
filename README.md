@@ -40,6 +40,10 @@ curl http://localhost:8080/playlist/1
 
 Import `postman/Spotify_Backend.postman_collection.json` into Postman. Update the `baseUrl` variable to the Cloud Run URL when testing the deployed service.
 
+## Configuration Notes
+
+Non-code setup is documented in `docs/configuration.md`, including JSON data resources, lack of database, Cloud Run service settings, and pending Cloud Build trigger setup.
+
 ## Cloud Run Deployment
 
 The repo includes `Dockerfile` and `cloudbuild.yaml`.
