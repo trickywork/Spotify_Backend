@@ -21,7 +21,7 @@ Ktor backend for the Spotify-style portfolio project. It exposes playlist, feed,
 - JDK 21
 - Static JSON resources for portfolio data
 - Docker, Google Cloud Build, Google Cloud Run
-- Postman collection for API testing
+- API testing via local Postman workspace
 
 ## Project Structure
 
@@ -35,8 +35,6 @@ Spotify_Backend/
   docs/
     api.md
     configuration.md
-  postman/
-    Spotify_Backend.postman_collection.json
   build.gradle.kts
   Dockerfile
   cloudbuild.yaml
@@ -97,10 +95,10 @@ Expected result:
 
 ## Postman
 
-Import:
+Use the local Postman workspace collection:
 
 ```text
-postman/Spotify_Backend.postman_collection.json
+202409 Spotify Backend - Coding Pad API Tests
 ```
 
 Suggested variables:
@@ -113,6 +111,12 @@ For Cloud Run:
 
 ```text
 baseUrl=https://spotify-api-gb7rmueyna-uc.a.run.app
+```
+
+The repo-exported backup copy is stored outside GitHub at:
+
+```text
+/Users/junliu/CourseArtifacts/postman/project-exported/Spotify_Backend.postman_collection.json
 ```
 
 ## Tests And Build
