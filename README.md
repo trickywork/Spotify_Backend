@@ -1,5 +1,7 @@
 # Spotify Backend
 
+[![CI](https://github.com/trickywork/Spotify_Backend/actions/workflows/ci.yml/badge.svg)](https://github.com/trickywork/Spotify_Backend/actions/workflows/ci.yml)
+
 Ktor backend for the Spotify-style portfolio project. It exposes playlist, feed, and song metadata APIs that are consumed by the separate static frontend repo.
 
 ## Live Service
@@ -56,7 +58,7 @@ The demo does not ship copyrighted audio files. Playback in the frontend is simu
 Run the API:
 
 ```bash
-cd /Users/junliu/git_repo/Spotify_Backend
+cd Spotify_Backend
 PORT=8083 ./gradlew run
 ```
 
@@ -98,7 +100,7 @@ Expected result:
 Use the local Postman workspace collection:
 
 ```text
-202409 Spotify Backend - Coding Pad API Tests
+Spotify Backend - Portfolio API Smoke Tests
 ```
 
 Suggested variables:
@@ -113,11 +115,7 @@ For Cloud Run:
 baseUrl=https://spotify-api-gb7rmueyna-uc.a.run.app
 ```
 
-The repo-exported backup copy is stored outside GitHub at:
-
-```text
-/Users/junliu/CourseArtifacts/postman/project-exported/Spotify_Backend.postman_collection.json
-```
+The exported backup copy is kept in a private local archive outside this public repo.
 
 ## Tests And Build
 
@@ -155,7 +153,6 @@ Cloud Run cost controls:
 Frontend repo:
 
 ```text
-/Users/junliu/git_repo/Spotify_Frontend
 https://github.com/trickywork/Spotify_Frontend
 ```
 

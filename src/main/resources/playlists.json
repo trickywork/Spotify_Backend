@@ -50,7 +50,7 @@
   {
     "id": 3,
     "name": "Backend Routes",
-    "description": "The course API contract: feed, playlists, playlist detail, and song resource URLs.",
+    "description": "Stable API contract: feed, playlists, playlist detail, and song resource URLs.",
     "cover": "routes",
     "songs": [
       {

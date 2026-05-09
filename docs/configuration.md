@@ -4,7 +4,7 @@ This file records the non-code setup needed to run, test, and redeploy the Spoti
 
 ## Runtime Shape
 
-The backend is a Kotlin Ktor service. It serves JSON resources from the repo and exposes course-compatible API routes.
+The backend is a Kotlin Ktor service. It serves JSON resources from the repo and exposes stable portfolio API routes.
 
 There is no database in the current implementation.
 
@@ -30,7 +30,7 @@ The app reads `PORT`; if it is absent, it uses `8080`.
 ## Local Startup
 
 ```bash
-cd /Users/junliu/git_repo/Spotify_Backend
+cd Spotify_Backend
 ./gradlew run
 ```
 
@@ -45,7 +45,7 @@ curl http://localhost:8080/api/health
 Postman collection:
 
 ```text
-postman/Spotify_Backend.postman_collection.json
+Spotify Backend - Portfolio API Smoke Tests
 ```
 
 Variables:

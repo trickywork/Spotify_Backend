@@ -14,7 +14,7 @@ Base URL:
 | GET | `/feed` | Home feed sections with playlist ids. |
 | GET | `/playlists` | All playlists and songs. |
 | GET | `/playlist/{id}` | One playlist by id. |
-| GET | `/songs/{file}` | Course-compatible song URL shape. The portfolio demo does not bundle copyrighted audio files. |
+| GET | `/songs/{file}` | Stable song URL shape. The portfolio demo does not bundle copyrighted audio files. |
 
 ## Data Model
 
@@ -22,6 +22,6 @@ Base URL:
 
 `Song` contains `id`, `name`, `artist`, `lyric`, `src`, and `length` in seconds.
 
-## Course Notes
+## Media Notes
 
-The app uses a Ktor backend with `/feed`, `/playlists`, `/playlist/{id}`, and static song resources. This repo keeps that compact API surface so an Android or web frontend can call it directly.
+The app uses a Ktor backend with `/feed`, `/playlists`, `/playlist/{id}`, and static song resources. This repo keeps that compact API surface so a web or mobile frontend can call it directly.
