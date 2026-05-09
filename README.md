@@ -44,6 +44,12 @@ Import `postman/Spotify_Backend.postman_collection.json` into Postman. Update th
 
 The repo includes `Dockerfile` and `cloudbuild.yaml`.
 
+Current Cloud Run URL:
+
+```text
+https://spotify-api-gb7rmueyna-uc.a.run.app
+```
+
 Manual deploy:
 
 ```bash

@@ -3,7 +3,7 @@
 Base URL:
 
 - Local: `http://localhost:8080`
-- Cloud Run: use the `spotify-api` service URL after deployment.
+- Cloud Run: `https://spotify-api-gb7rmueyna-uc.a.run.app`
 
 ## Endpoints
 
