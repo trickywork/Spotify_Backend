@@ -1,0 +1,50 @@
+steps:
+  - name: gcr.io/cloud-builders/docker
+    args:
+      - build
+      - -t
+      - us-central1-docker.pkg.dev/$PROJECT_ID/portfolio-repo/spotify-api:$COMMIT_SHA
+      - -t
+      - us-central1-docker.pkg.dev/$PROJECT_ID/portfolio-repo/spotify-api:latest
+      - .
+
+  - name: gcr.io/cloud-builders/docker
+    args:
+      - push
+      - us-central1-docker.pkg.dev/$PROJECT_ID/portfolio-repo/spotify-api:$COMMIT_SHA
+
+  - name: gcr.io/cloud-builders/docker
+    args:
+      - push
+      - us-central1-docker.pkg.dev/$PROJECT_ID/portfolio-repo/spotify-api:latest
+
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk:slim
+    entrypoint: gcloud
+    args:
+      - run
+      - deploy
+      - spotify-api
+      - --image
+      - us-central1-docker.pkg.dev/$PROJECT_ID/portfolio-repo/spotify-api:$COMMIT_SHA
+      - --region
+      - us-central1
+      - --platform
+      - managed
+      - --allow-unauthenticated
+      - --min-instances
+      - "0"
+      - --max-instances
+      - "2"
+      - --cpu
+      - "1"
+      - --memory
+      - 512Mi
+      - --labels
+      - app=spotify-api,portfolio=junliu
+
+images:
+  - us-central1-docker.pkg.dev/$PROJECT_ID/portfolio-repo/spotify-api:$COMMIT_SHA
+  - us-central1-docker.pkg.dev/$PROJECT_ID/portfolio-repo/spotify-api:latest
+
+options:
+  logging: CLOUD_LOGGING_ONLY

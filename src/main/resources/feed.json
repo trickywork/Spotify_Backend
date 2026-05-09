@@ -1,0 +1,15 @@
+{
+  "title": "LaiOffer Spotify Demo",
+  "sections": [
+    {
+      "id": "recent",
+      "title": "Recently played",
+      "playlistIds": [1, 2]
+    },
+    {
+      "id": "study",
+      "title": "Focus sessions",
+      "playlistIds": [3, 4]
+    }
+  ]
+}

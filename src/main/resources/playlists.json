@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "name": "Morning Kotlin",
+    "description": "A compact playlist for warming up the Ktor backend and Android client flow.",
+    "cover": "kotlin",
+    "songs": [
+      {
+        "id": 101,
+        "name": "Embedded Server",
+        "artist": "Netty Quartet",
+        "lyric": "Start the server, wire the route, respond with JSON.",
+        "src": "/songs/embedded-server.mp3",
+        "length": 186
+      },
+      {
+        "id": 102,
+        "name": "Serialization Sunrise",
+        "artist": "Data Class Club",
+        "lyric": "Decode the payload, keep the contract clean.",
+        "src": "/songs/serialization-sunrise.mp3",
+        "length": 214
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Compose Flow",
+    "description": "UI state, player controls, and feed browsing in one mobile-style rhythm.",
+    "cover": "compose",
+    "songs": [
+      {
+        "id": 201,
+        "name": "State Hoisting",
+        "artist": "Remember Saveable",
+        "lyric": "Lift the state, pass it down, keep the screen predictable.",
+        "src": "/songs/state-hoisting.mp3",
+        "length": 199
+      },
+      {
+        "id": 202,
+        "name": "Lazy Column Lights",
+        "artist": "Recycler Dreams",
+        "lyric": "Rows glide by while the playlist stays light.",
+        "src": "/songs/lazy-column-lights.mp3",
+        "length": 242
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Backend Routes",
+    "description": "The course API contract: feed, playlists, playlist detail, and song resource URLs.",
+    "cover": "routes",
+    "songs": [
+      {
+        "id": 301,
+        "name": "Slash Feed",
+        "artist": "Routing Table",
+        "lyric": "The feed endpoint collects sections for discovery.",
+        "src": "/songs/slash-feed.mp3",
+        "length": 176
+      },
+      {
+        "id": 302,
+        "name": "Playlist Parameter",
+        "artist": "Path Variable",
+        "lyric": "Read the id, find the list, return the songs.",
+        "src": "/songs/playlist-parameter.mp3",
+        "length": 221
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Cloud Run Chill",
+    "description": "A deployable portfolio version tuned for low monthly cost.",
+    "cover": "cloud",
+    "songs": [
+      {
+        "id": 401,
+        "name": "Min Instance Zero",
+        "artist": "Billing Console",
+        "lyric": "Scale to zero when no one is listening.",
+        "src": "/songs/min-instance-zero.mp3",
+        "length": 205
+      },
+      {
+        "id": 402,
+        "name": "Push To Main",
+        "artist": "Cloud Build",
+        "lyric": "Commit, push, build, deploy, repeat when ready.",
+        "src": "/songs/push-to-main.mp3",
+        "length": 233
+      }
+    ]
+  }
+]
