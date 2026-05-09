@@ -1,85 +1,173 @@
 # Spotify Backend
 
-Ktor backend for the Spotify portfolio project. It exposes a compact music API and is prepared for low-cost Cloud Run deployment.
+Ktor backend for the Spotify-style portfolio project. It exposes playlist, feed, and song metadata APIs that are consumed by the separate static frontend repo.
 
-## Features
+## Live Service
 
-- `GET /feed` returns home feed sections.
-- `GET /playlists` returns playlist and song metadata.
-- `GET /playlist/{id}` returns one playlist.
-- `GET /songs/{file}` keeps the static song URL shape from the course, but the portfolio demo does not ship copyrighted audio.
-- CORS is enabled so a separate frontend repo can call the API.
+- Cloud Run service: `spotify-api`
+- Cloud Run URL: `https://spotify-api-888561484971.us-central1.run.app`
+- Frontend service: `https://spotify-888561484971.us-central1.run.app`
+- Portfolio URL: `https://spotify.junliu.dev`
+- Google Cloud project: `caramel-vim-441513-e1`
+- Region: `us-central1`
 
-## Local Run
+## Tech Stack
 
-Requirements:
-
-- JDK 21 or newer
-- No global Gradle install required; use the included wrapper.
-
-```bash
-./gradlew run
-```
-
-Then open:
-
-```bash
-curl http://localhost:8080/api/health
-curl http://localhost:8080/feed
-curl http://localhost:8080/playlists
-curl http://localhost:8080/playlist/1
-```
-
-## Tests
-
-```bash
-./gradlew test
-```
-
-## API Testing
-
-Import `postman/Spotify_Backend.postman_collection.json` into Postman. Update the `baseUrl` variable to the Cloud Run URL when testing the deployed service.
-
-## Configuration Notes
-
-Non-code setup is documented in `docs/configuration.md`, including JSON data resources, lack of database, Cloud Run service settings, and pending Cloud Build trigger setup.
-
-## Cloud Run Deployment
-
-The repo includes `Dockerfile` and `cloudbuild.yaml`.
-
-Current Cloud Run URL:
-
-```text
-https://spotify-api-gb7rmueyna-uc.a.run.app
-```
-
-Manual deploy:
-
-```bash
-gcloud builds submit --config cloudbuild.yaml --project caramel-vim-441513-e1
-```
-
-The Cloud Build trigger should deploy on pushes to `main` after the GitHub repository is connected.
-
-Cost controls:
-
-- `--min-instances=0` so the service can scale to zero.
-- `--max-instances=2` to avoid surprise scaling.
-- No Cloud SQL, VM, Elasticsearch, or paid storage dependency for the demo data.
+- Kotlin
+- Ktor 3
+- Netty engine
+- Kotlin serialization
+- Gradle Kotlin DSL
+- JDK 21
+- Static JSON resources for portfolio data
+- Docker, Google Cloud Build, Google Cloud Run
+- Postman collection for API testing
 
 ## Project Structure
 
 ```text
-src/main/kotlin/dev/junliu/spotify/Application.kt
-src/main/resources/feed.json
-src/main/resources/playlists.json
-postman/Spotify_Backend.postman_collection.json
-docs/api.md
-cloudbuild.yaml
-Dockerfile
+Spotify_Backend/
+  src/main/kotlin/dev/junliu/spotify/
+    Application.kt
+  src/main/resources/
+    feed.json
+    playlists.json
+  docs/
+    api.md
+    configuration.md
+  postman/
+    Spotify_Backend.postman_collection.json
+  build.gradle.kts
+  Dockerfile
+  cloudbuild.yaml
 ```
 
-## Course Alignment
+## Features
 
-The course coding pad builds a Kotlin Ktor service with playlist JSON and static song routes. This implementation keeps the backend contract portfolio-friendly and cloud-friendly while avoiding bundled copyrighted audio assets.
+- Home feed sections.
+- Playlist list.
+- Individual playlist detail.
+- Song route shape preserved for frontend compatibility.
+- CORS enabled for a separately hosted frontend.
+- No database required for the portfolio version.
+
+The demo does not ship copyrighted audio files. Playback in the frontend is simulated around the metadata.
+
+## Local Development
+
+Run the API:
+
+```bash
+cd /Users/junliu/git_repo/Spotify_Backend
+PORT=8083 ./gradlew run
+```
+
+Expected local URL:
+
+```text
+http://localhost:8083
+```
+
+Smoke checks:
+
+```bash
+curl http://localhost:8083/api/health
+curl http://localhost:8083/feed
+curl http://localhost:8083/playlists
+curl http://localhost:8083/playlist/1
+```
+
+Expected result:
+
+- `/api/health` returns a healthy response.
+- `/feed` returns sections for the home page.
+- `/playlists` returns playlist cards and song metadata.
+- `/playlist/1` returns one playlist object.
+
+## API Endpoints
+
+| Method | Path | Description |
+| --- | --- | --- |
+| `GET` | `/` | Basic service response. |
+| `GET` | `/api/health` | Health check. |
+| `GET` | `/feed` | Home feed sections. |
+| `GET` | `/playlists` | All playlists. |
+| `GET` | `/playlist/{id}` | One playlist. |
+| `GET` | `/songs/{file}` | Compatibility route for song file URLs. |
+
+## Postman
+
+Import:
+
+```text
+postman/Spotify_Backend.postman_collection.json
+```
+
+Suggested variables:
+
+```text
+baseUrl=http://localhost:8083
+```
+
+For Cloud Run:
+
+```text
+baseUrl=https://spotify-api-888561484971.us-central1.run.app
+```
+
+## Tests And Build
+
+```bash
+./gradlew test
+./gradlew buildFatJar
+```
+
+Build a local image:
+
+```bash
+docker build -t spotify-api:local .
+```
+
+## Cloud Deployment
+
+Manual deployment:
+
+```bash
+gcloud builds submit \
+  --config cloudbuild.yaml \
+  --project caramel-vim-441513-e1
+```
+
+Cloud Run cost controls:
+
+- `min-instances=0`
+- `max-instances=2`
+- no database
+- no persistent storage
+- JSON resources are bundled into the container
+
+## Frontend Pairing
+
+Frontend repo:
+
+```text
+/Users/junliu/git_repo/Spotify_Frontend
+https://github.com/trickywork/Spotify_Frontend
+```
+
+The frontend should point to this backend with:
+
+```env
+API_BASE_URL=https://spotify-api-888561484971.us-central1.run.app
+```
+
+## Expected Portfolio Behavior
+
+The deployed frontend should load playlist/feed data from this API, show playlist details, allow track selection, and support simulated player controls. The backend should remain stateless and cheap to run.
+
+## Additional Notes
+
+More details:
+
+- `docs/api.md`
+- `docs/configuration.md`
