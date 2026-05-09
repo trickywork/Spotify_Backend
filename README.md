@@ -1,6 +1,6 @@
 # Spotify Backend
 
-Ktor backend for the LaiOffer Spotify project. It exposes the same core API shape from the course coding pad and is prepared for low-cost Cloud Run deployment.
+Ktor backend for the Spotify portfolio project. It exposes a compact music API and is prepared for low-cost Cloud Run deployment.
 
 ## Features
 
@@ -71,7 +71,7 @@ Cost controls:
 ## Project Structure
 
 ```text
-src/main/kotlin/com/laioffer/spotify/Application.kt
+src/main/kotlin/dev/junliu/spotify/Application.kt
 src/main/resources/feed.json
 src/main/resources/playlists.json
 postman/Spotify_Backend.postman_collection.json

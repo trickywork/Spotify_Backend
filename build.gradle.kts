@@ -4,11 +4,11 @@ plugins {
     id("io.ktor.plugin") version "3.0.3"
 }
 
-group = "com.laioffer.spotify"
+group = "dev.junliu.spotify"
 version = "0.1.0"
 
 application {
-    mainClass.set("com.laioffer.spotify.ApplicationKt")
+    mainClass.set("dev.junliu.spotify.ApplicationKt")
 }
 
 kotlin {

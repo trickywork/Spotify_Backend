@@ -24,4 +24,4 @@ Base URL:
 
 ## Course Notes
 
-The LaiOffer coding pad uses a Ktor backend with `/feed`, `/playlists`, `/playlist/{id}`, and static song resources. This repo keeps the same API surface so an Android or web frontend can call it directly.
+The app uses a Ktor backend with `/feed`, `/playlists`, `/playlist/{id}`, and static song resources. This repo keeps that compact API surface so an Android or web frontend can call it directly.

@@ -1,4 +1,4 @@
-package com.laioffer.spotify
+package dev.junliu.spotify
 
 import io.ktor.client.call.body
 import io.ktor.client.request.get

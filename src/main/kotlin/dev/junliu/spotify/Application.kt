@@ -1,4 +1,4 @@
-package com.laioffer.spotify
+package dev.junliu.spotify
 
 import io.ktor.http.HttpHeaders
 import io.ktor.http.HttpMethod
